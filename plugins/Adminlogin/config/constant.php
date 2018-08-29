@@ -20,3 +20,4 @@ define('FRONTEND_IMG_PATH','/frontend/images/');
 define('UPLOAD_PATH',ROOT.DS.'webroot'.DS.'uploads'.DS);
 
 define('WEATHER',1);
+define('SITE_URL','http://localhost/customadmin');

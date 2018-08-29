@@ -4,6 +4,7 @@ namespace Adminlogin\Controller;
 use App\Controller\AppController as BaseController;
 use Cake\Event\Event;
 use Cake\Core\Configure;
+use Cake\Utility\Hash;
 
 class AppController extends BaseController
 {
@@ -24,7 +25,7 @@ class AppController extends BaseController
             'authorize' => 'Controller',
             'authenticate' => [
                 'Form' => [
-                    'fields' => ['username' => 'username', 'password' => 'password'],
+                    'fields' => ['username' => 'email', 'password' => 'password'],
                     'userModel' => 'Adminlogin.AdminUsers',
                     'scope' => ['AdminUsers.status' => 1]
                 ],
@@ -88,10 +89,10 @@ class AppController extends BaseController
               
                 $this->loadModel('AdminModules');
                 $admin_madules = $this->AdminModules->find()->select([
-                    'id','name','parent_id','title','controller','action'
+                    'id','name','parent_id','title','controller','action','order'
                 ])->where($conditions)
                 ->toArray();
-
+               
                 $modules = array();
                 foreach($admin_madules as $module)
                 {
@@ -101,13 +102,15 @@ class AppController extends BaseController
                         'name' => $module->name,
                         'title' => $module->title,
                         'controller' => $module->controller,
-                        'action' => $module->action
+                        'action' => $module->action,
+                        'order' => $module->order
                     );
                 }
                
 
                 $admin_menu = $this->buildTree($modules, 'parent_id', 'id');
-                //$this->request->session()->write('menu',$admin_menu);   
+                $admin_menu = Hash::sort($admin_menu, '{n}.order', 'asc');
+                $this->request->session()->write('menu',$admin_menu);   
             }else{
                 $admin_menu = $this->request->session()->read('menu');
             }

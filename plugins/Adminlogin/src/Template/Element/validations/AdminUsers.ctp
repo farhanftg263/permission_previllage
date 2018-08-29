@@ -158,23 +158,22 @@ $(document).ready(function() {
                 validating: 'glyphicon glyphicon-refresh'
             },
             fields: {
-                username: {
+                email: {
+                    verbose: false,
                     threshold: 30,
-                    verbose:false,
                     validators: {
                         notEmpty: {
-                            message: '<?= $lang_users_vars['Error']['username']['ER001'];?>'
-                        },                    
-                        regexp: {
-                            regexp: /^\S*$/,
-                            message: '<?= $lang_users_vars['Error']['username']['ER002'];?>'
+                            message: '<?= $lang_users_vars['Error']['email']['ER001'];?>'
+                        },  
+                        emailAddress: {
+                            message: '<?= $lang_users_vars['Error']['email']['ER002'];?>'
                         },
                         stringLength: {
-                            min: 5,
-                            max: 20,
-                            message: '<?= $lang_users_vars['Error']['username']['ER003'];?>'
-                        },
-                    }
+                            min: 7,
+                            max: 50,
+                            message: '<?= $lang_users_vars['Error']['email']['ER003'];?>'
+                        }
+                    }               
                 },
                 password: {
                     threshold: 30,

@@ -2,11 +2,12 @@
     <!-- Logo -->
     <?php
     echo $this->Html->link(
-        '<span class="logo-mini"><b>M</b></span><span class="logo-lg"><b>Migrate Outfitters</b></span>',
+        '<span class="logo-lg"><b>Admin</b></span>',
         ['controller' => 'dashboard', 'action' => 'index'],
         ['class'=>'logo','escape' => false]
     );
     ?>
+    
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
         <!-- Sidebar toggle button-->
@@ -22,7 +23,7 @@
                 <li class="dropdown  user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <?= $this->Html->image('Adminlogin.logo.png', ['alt' => 'User Image', 'class'=>'user-image']);?>
-                        <span class="hidden-xs"><?= $auth['auth_username']?></span>
+                        <span class="hidden-xs"><?= $auth['auth_email']?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->

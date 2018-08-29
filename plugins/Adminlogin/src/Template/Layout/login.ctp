@@ -30,12 +30,14 @@
         <div class="login-box">
             <div class="login-logo">
                 <?php
-                echo $this->Html->link(
+                /*echo $this->Html->link(
                     $this->Html->image('Adminlogin.footer-logo.png', ['alt' => 'Logo','width'=>'100%','height'=>'100%']),
                     ['controller' => 'AdminUsers', 'action' => 'login'],
                     ['escape' => false]
-                );
+                );*/
+                
                 ?>
+                <b>Admin</b>
             </div>
             <div class="login-box-body">
                 <?= $this->fetch('content'); ?>                

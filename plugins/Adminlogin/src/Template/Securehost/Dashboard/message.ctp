@@ -72,7 +72,7 @@ $this->Breadcrumbs->addCrumb($heading);
 <?= $this->Html->css('/frontend/css/jquery.mCustomScrollbar'); ?>
 <?= $this->Html->script('/frontend/js/jquery.mCustomScrollbar',['type'=>"text/javascript"]);?> 
 
-<input type="hidden" name="role_id" id="role_id" value="<?= $users['role_id'] ?>" />
+<input type="hidden" name="role_id" id="role_id" value="" />
 <script src="//www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 <script src="//www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
 <script src="//www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>

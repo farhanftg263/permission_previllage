@@ -203,6 +203,7 @@ class RolesController extends AppController
                         die;
                     }
                 }else{
+                    
                     $this->request->data['is_admin'] = 1;
                     $role = $this->Roles->patchEntity($role, $this->request->getData());
                     if (!$role->errors()) {

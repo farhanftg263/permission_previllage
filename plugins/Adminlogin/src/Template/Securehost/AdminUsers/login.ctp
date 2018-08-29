@@ -17,11 +17,11 @@ echo $this->Form->create(
 <div class="form-group has-feedback">
     <?php
     echo $this->Form->control(
-        'username',
+        'email',
         [
             'required' => false,
             'label' => false,
-            'placeholder'   =>  'Username',
+            'placeholder'   =>  'Email',
             'class' =>  'form-control',                
         ]
     );

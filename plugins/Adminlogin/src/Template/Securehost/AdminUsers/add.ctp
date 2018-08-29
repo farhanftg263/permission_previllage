@@ -70,21 +70,6 @@ $this->Breadcrumbs->addCrumb($heading);
        
         <?php
         echo $this->Form->control(
-            'username',
-            [
-                'required' => false,
-                'type' => 'text',
-                'label' => 'Username',
-                'placeholder' =>  'Username',
-                'class' =>  'form-control',       
-                'id' => 'username',
-                'onchange' => "return trim(this)",
-                'maxlength' => 20
-            ]
-        );
-        ?>
-        <?php
-        echo $this->Form->control(
             'password',
             [
                 'required' => false,

@@ -82,6 +82,7 @@ class DashboardController extends AppController
     }
     public function ajaxChat()
     {
+        //$this->getEventManager()->off($this->Csrf);
         $this->loadComponent('Chat');
         $this->Chat->chat_realtime();
     }

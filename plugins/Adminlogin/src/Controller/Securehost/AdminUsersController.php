@@ -196,17 +196,26 @@ class AdminUsersController extends AppController {
             $this->set('title', 'User Management');        
             $this->set('heading', 'Add User');  
             $this->viewBuilder()->setLayout('form');
-
+            $this->loadModel('RoleModules');
+            $role_modules = $this->RoleModules->find('list',[
+                'keyField' => 'id',
+                'valueField' => 'role_id'
+            ])->distinct(['role_id'])->where(['status' => 1])->toArray();
+           
             $query = $this->Roles->find('list',['order' => 'Roles.id ASC'])
-                    ->where(['is_admin' => 1,'status' => 1,'is_superadmin <>' => 1]);
+                    ->where(['is_admin' => 1,'status' => 1,'Roles.id in' => $role_modules]);
             $roles = $query->toArray();
 
             $user = $this->AdminUsers->newEntity();        
-            if ($this->request->is('post')) {
+            if ($this->request->is('post')) 
+            {
                 $action = (!empty($this->request->data['action']))?trim($this->request->data['action']):'';
-                if ($action == 'validate') {
+                if ($action == 'validate')
+                {
                     $type = (!empty($this->request->data['type']))?trim($this->request->data['type']):'';
-                    switch ($type) {
+                   
+                    switch ($type) 
+                    {
                         case 'email':
                             $conditions = array();
                             $email = (!empty($this->request->data['email'])) ? trim($this->request->data['email']):'';
